@@ -2,9 +2,9 @@
 
 <h2>Node Selector</h2>
 
-1. No manifesto yaml será configurado o volume e inserido uma label um um dos nós;
+1. No manifesto yaml será configurado o volume e inserido uma label em um dos nós;
 2. Na epecificação do MongoDb será utilzado o Host Path;
-3. Com o Node Selector é possivel especificar no manifesto do Pod MongoDb qual NODE ele deve
+3. Com o Node Selector é possivel especificar no manifesto do Pod qual NODE ele deve
 ser vinuclado. 
 
 <h3>Configurar o Manifesto Deployment do MongoDb</h3>
@@ -71,10 +71,27 @@ $ kubectl get pods -o wide
 2. Segundo Teste
 
 Incuir dados na base de dados.
-Depois exclua o pod do MongoDb.
-E faça uma conuslta, os dados irão retornar devido ao Node Selector.
+
+Exemplo:
+
+![image](https://github.com/fabiocaettano/kubedev-modulo22-node-selector/blob/main/image/post.PNG)
+
+Consultar e anotar o nome do pod do MongoDb:
+
+``` bash
+$ kubectl get pods
+```
+
+Excluir o pod do MongoDb:
+``` bash
+$ kubectl delete pod nome
+```
+
+Faça uma conuslta, os dados irão retornar devido ao Node Selector.
 
 ![image](https://github.com/fabiocaettano/kubedev-modulo22-node-selector/blob/main/image/get.PNG)
+
+
 
 3. Terceiro teste
 
@@ -83,35 +100,22 @@ Retirar a label no node:
 $ kubectl label node pool-uzfx4xaht-c70hh database-
 ``` 
 
-Excluir o pod:
-```
-$ kubectl get pods nomeDoPod
+Excluir o pod do MongoDb:
+``` bash
+$ kubectl delete pod nome
 ```
 
 Consulte o pod, observe que ele ficará com status de "pending".
 
+![image](https://github.com/fabiocaettano/kubedev-modulo22-node-selector/blob/main/image/get.PNG)
+
 
 4. Teste
 
-Retirar a label no node:
-``` bash
-$ kubectl label node pool-uzfx4xaht-c70hh database-
-``` 
-
-Excluir e consultar o pod diversas vezes:
+Com a retirara a label no node , excluia e consulte o pod diversas vezes:
 ```
-$ kubectl get pods nomeDoPod
-$ kubectl get pods -o wide
+$ kubectl get pods nomeDoPod - o wide
+$ kubectl delete pod nomeDoPod
 ```
 
 Aleatoriamente o pod ficará alternando entre os Nodes.
-
-Quando o POD estiver vinculado a um NODE diferente do utilizado par configurar a LABEL,
-faça uma consulta a base de dados.
-
-Ao usar o Host Path caso o pod sejá excluido não é garantido que o novo pod
-será direcionado para mesmo NODE, então não é uma boa abordagem sem a utilização
-do Node Selector.
-
-
-
