@@ -54,7 +54,7 @@ $ kubectl appply -f ./mongodb
 
 <h3>Testes</h3>
 
-1. Primeiro Teste
+1. <b>Primeiro Teste</b>
 
 Observe qual NODE o pod do MongoDb está vinculado.
 ``` bash
@@ -68,7 +68,7 @@ $ kubectl delete pod nomeDoPod
 $ kubectl get pods -o wide
 ```
 
-2. Segundo Teste
+2. <b>Segundo Teste</b>
 
 Incuir dados na base de dados.
 
@@ -93,7 +93,7 @@ Faça uma conuslta, os dados irão retornar devido ao Node Selector.
 
 
 
-3. Terceiro teste
+3. <b>Terceiro teste</b>
 
 Retirar a label no node:
 ``` bash
@@ -110,7 +110,7 @@ Consulte o pod, observe que ele ficará com status de "pending".
 ![image](https://github.com/fabiocaettano/kubedev-modulo22-node-selector/blob/main/image/get.PNG)
 
 
-4. Teste
+4. <b>Teste</b>
 
 Com a retirara a label no node , excluia e consulte o pod diversas vezes:
 ```
