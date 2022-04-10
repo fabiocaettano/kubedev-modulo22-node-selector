@@ -110,12 +110,21 @@ Consulte o pod, observe que ele ficará com status de "pending".
 ![image](https://github.com/fabiocaettano/kubedev-modulo22-node-selector/blob/main/image/get.PNG)
 
 
-4. <b>Teste</b>
+4. <b>Quarto Teste</b>
 
-Com a retirara a label no node , excluia e consulte o pod diversas vezes:
+Retirar do manifesto a referência do Node Selector:
+
+``` yaml
+nodeSelector:
+    database: mongodb
+```
+
+Com a retirara a label no node , exclua e consulte o pod diversas vezes:
 ```
 $ kubectl get pods nomeDoPod - o wide
 $ kubectl delete pod nomeDoPod
 ```
 
 Aleatoriamente o pod ficará alternando entre os Nodes.
+
+
