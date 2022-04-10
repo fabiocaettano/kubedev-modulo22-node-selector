@@ -69,6 +69,7 @@ $ kubectl get pods -o wide
 ```
 
 2. Segundo Teste
+
 Incuir dados na base de dados.
 Depois exclua o pod do MongoDb.
 E faça uma conuslta, os dados irão retornar devido ao Node Selector.
