@@ -52,7 +52,7 @@ $ kubectl describe node kubectl pool-uzfx4xaht-c70hh | less
 $ kubectl appply -f ./mongodb
 ```
 
-<h3><Testes</h3>
+<h3>Testes</h3>
 
 1. Primeiro Teste
 
